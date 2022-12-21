@@ -1,5 +1,4 @@
 import { Column } from "react-table";
-import tableDataCheck from "./tableDataCheck.json";
 
 export const columnsDataCheck = [
   {
@@ -21,8 +20,12 @@ export const columnsDataCheck = [
 ];
 export const columnsDataComplex = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "TICKETID",
+    accessor: "ticketId",
+  },
+  {
+    Header: "TYPE",
+    accessor: "type",
   },
   {
     Header: "STATUS",
@@ -31,10 +34,6 @@ export const columnsDataComplex = [
   {
     Header: "DATE",
     accessor: "date",
-  },
-  {
-    Header: "PROGRESS",
-    accessor: "progress",
   },
 ];
 

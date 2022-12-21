@@ -64,8 +64,12 @@ export const columnsDataColumns: Columns = [
 
 export const columnsDataComplex: Columns = [
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: "TICKETID",
+    accessor: "ticketId",
+  },
+  {
+    Header: "TYPE",
+    accessor: "type",
   },
   {
     Header: "STATUS",
@@ -74,9 +78,5 @@ export const columnsDataComplex: Columns = [
   {
     Header: "DATE",
     accessor: "date",
-  },
-  {
-    Header: "PROGRESS",
-    accessor: "progress",
   },
 ];

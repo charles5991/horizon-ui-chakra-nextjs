@@ -1,74 +1,62 @@
-import { Icon } from '@chakra-ui/react'
+import { Icon } from "@chakra-ui/react";
 import {
-  MdBarChart,
+  MdAttachMoney,
   MdPerson,
   MdHome,
-  MdLock,
-  MdOutlineShoppingCart
-} from 'react-icons/md'
+  MdAutoGraph,
+  MdSupportAgent,
+} from "react-icons/md";
 
 // Admin Imports
-import MainDashboard from 'pages/admin/default'
-import NFTMarketplace from 'pages/admin/nft-marketplace'
-import Profile from 'pages/admin/profile'
-import DataTables from 'pages/admin/data-tables'
-import RTL from 'pages/rtl/rtl-default'
+import MainDashboard from "pages/admin/default";
+import NFTMarketplace from "pages/admin/nft-marketplace";
+import Profile from "pages/admin/profile";
+import DataTables from "pages/admin/data-tables";
 
 // Auth Imports
-import SignInCentered from 'pages/auth/sign-in'
-import { IRoute } from 'types/navigation'
+import { IRoute } from "types/navigation";
 
 const routes: IRoute[] = [
   {
-    name: 'Main Dashboard',
-    layout: '/admin',
-    path: '/default',
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: MainDashboard
+    name: "Dashboard",
+    layout: "/admin",
+    path: "/default",
+    icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
+    component: MainDashboard,
   },
   {
-    name: 'NFT Marketplace',
-    layout: '/admin',
-    path: '/nft-marketplace',
-    icon: (
-      <Icon
-        as={MdOutlineShoppingCart}
-        width='20px'
-        height='20px'
-        color='inherit'
-      />
-    ),
+    name: "Trader Evolution ",
+    layout: "/admin",
+    path: "/nft-marketplace",
+    icon: <Icon as={MdAutoGraph} width="20px" height="20px" color="inherit" />,
     component: NFTMarketplace,
-    secondary: true
+    secondary: true,
   },
   {
-    name: 'Data Tables',
-    layout: '/admin',
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-    path: '/data-tables',
-    component: DataTables
+    name: "Withdraw and Deposit",
+    layout: "/admin",
+    icon: (
+      <Icon as={MdAttachMoney} width="20px" height="20px" color="inherit" />
+    ),
+    path: "/data-tables",
+    component: DataTables,
   },
   {
-    name: 'Profile',
-    layout: '/admin',
-    path: '/profile',
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    component: Profile
+    name: "Trading History",
+    layout: "/admin",
+    path: "/profile",
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+    component: Profile,
   },
   {
-    name: 'Sign In',
-    layout: '/auth',
-    path: '/sign-in',
-    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-    component: SignInCentered
+    name: "Support Ticket",
+    layout: "/admin",
+    path: "/default",
+    icon: (
+      <Icon as={MdSupportAgent} width="20px" height="20px" color="inherit" />
+    ),
+    component: MainDashboard,
   },
-  {
-    name: 'RTL Admin',
-    layout: '/rtl',
-    path: '/rtl-default',
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: RTL
-  }
-]
+];
 
-export default routes
+export default routes;
