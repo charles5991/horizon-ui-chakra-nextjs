@@ -67,7 +67,7 @@ export default function ColumnsTable(props: TableProps) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Deposit and Withdraw Records
+          Trading History
         </Text>
       </Flex>
       <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
@@ -121,18 +121,18 @@ export default function ColumnsTable(props: TableProps) {
                           h="24px"
                           me="5px"
                           color={
-                            cell.value === "Approved"
+                            cell.value === "Matched"
                               ? "green.500"
-                              : cell.value === "Not Approve"
+                              : cell.value === "Cancelled"
                               ? "red.500"
                               : cell.value === "Pending"
                               ? "orange.500"
                               : null
                           }
                           as={
-                            cell.value === "Approved"
+                            cell.value === "Matched"
                               ? MdCheckCircle
-                              : cell.value === "Not Approve"
+                              : cell.value === "Cancelled"
                               ? MdCancel
                               : cell.value === "Pending"
                               ? MdOutlineError

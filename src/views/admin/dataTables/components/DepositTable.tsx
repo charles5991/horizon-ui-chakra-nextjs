@@ -1,7 +1,6 @@
 import {
   Flex,
   Table,
-  Progress,
   Icon,
   Tbody,
   Td,
@@ -18,13 +17,12 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
-
 // Custom components
 import Card from "components/card/Card";
-
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { TableProps } from "views/admin/default/variables/columnsData";
+
 export default function ColumnsTable(props: TableProps) {
   const { columnsData, tableData } = props;
 
@@ -67,7 +65,7 @@ export default function ColumnsTable(props: TableProps) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Deposit and Withdraw Records
+          Withdraw and Deposit Records
         </Text>
       </Flex>
       <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
@@ -144,7 +142,19 @@ export default function ColumnsTable(props: TableProps) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "DATE") {
+                  } else if (cell.column.Header === "DATE CREATED") {
+                    data = (
+                      <Text color={textColor} fontSize="sm" fontWeight="700">
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === "PAYMENT") {
+                    data = (
+                      <Text color={textColor} fontSize="sm" fontWeight="700">
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === "CURRENCY") {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}

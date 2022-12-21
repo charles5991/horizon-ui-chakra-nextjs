@@ -18,7 +18,7 @@ export const columnsDataCheck = [
     accessor: "date",
   },
 ];
-export const columnsDataComplex = [
+export const columnsDataDeposit = [
   {
     Header: "TICKETID",
     accessor: "ticketId",

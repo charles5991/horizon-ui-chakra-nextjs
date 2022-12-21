@@ -3,24 +3,32 @@
     "ticketId":"MY1221848",
     "type":"Deposit",
     "status": "Approved",
-    "date": "24.Jan.2021"
+    "date": "24.Jan.2021",
+    "currency": "MYR",
+    "payment": "FPX"
   },
   {
     "ticketId":"MY1421848",
     "type":"Deposit",
     "status": "Not Approve",
-    "date": "30.Dec.2021"
+    "date": "30.Dec.2021",
+    "currency": "USD",
+    "payment": "wire"
   },
   {
     "ticketId":"MY1781548",
     "type":"Withdraw",
     "status": "Pending",
-    "date": "20.May.2021"
+    "date": "20.May.2021",
+    "currency": "MYR",
+    "payment": "TNG"
   },
   {
     "ticketId":"MY1781988",
     "type":"Deposit",
     "status": "Approved",
-    "date": "12.Jul.2021"
+    "date": "12.Jul.2021",
+    "currency": "USD",
+    "payment": "Paypal"
   }
 ]

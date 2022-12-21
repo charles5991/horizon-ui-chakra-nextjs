@@ -10,8 +10,8 @@ import {
 // Admin Imports
 import MainDashboard from "pages/admin/default";
 import NFTMarketplace from "pages/admin/nft-marketplace";
-import Profile from "pages/admin/profile";
-import DataTables from "pages/admin/data-tables";
+import Deposit from "pages/admin/deposit";
+import TradingHistory from "pages/admin/tradingHistory";
 
 // Auth Imports
 import { IRoute } from "types/navigation";
@@ -38,15 +38,15 @@ const routes: IRoute[] = [
     icon: (
       <Icon as={MdAttachMoney} width="20px" height="20px" color="inherit" />
     ),
-    path: "/data-tables",
-    component: DataTables,
+    path: "/deposit",
+    component: Deposit,
   },
   {
     name: "Trading History",
     layout: "/admin",
-    path: "/profile",
+    path: "/tradingHistory",
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
-    component: Profile,
+    component: TradingHistory,
   },
   {
     name: "Support Ticket",

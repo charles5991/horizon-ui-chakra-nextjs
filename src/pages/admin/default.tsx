@@ -19,18 +19,15 @@ import {
   MdBarChart,
   MdFileCopy,
 } from "react-icons/md";
-import CheckTable from "views/admin/default/components/CheckTable";
-import ComplexTable from "views/admin/default/components/ComplexTable";
+import DepositTable from "views/admin/default/components/DepositTable";
 import DailyTraffic from "views/admin/default/components/DailyTraffic";
 import PieCard from "views/admin/default/components/PieCard";
 import Tasks from "views/admin/default/components/Tasks";
 import {
-  columnsDataCheck,
-  columnsDataComplex,
+  columnsDataDeposit,
   TableData,
 } from "views/admin/default/variables/columnsData";
-import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
-import { isWindowAvailable } from "utils/navigation";
+import tableDataDeposit from "views/admin/default/variables/tableDataDeposit.json";
 import AdminLayout from "layouts/admin";
 import { Image } from "components/image/Image";
 import Usa from "img/dashboards/usa.png";
@@ -153,9 +150,9 @@ export default function UserReports() {
             </SimpleGrid>
           </SimpleGrid>
           <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
-            <ComplexTable
-              columnsData={columnsDataComplex}
-              tableData={tableDataComplex as unknown as TableData[]}
+            <DepositTable
+              columnsData={columnsDataDeposit}
+              tableData={tableDataDeposit as unknown as TableData[]}
             />
             <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
               <Tasks />

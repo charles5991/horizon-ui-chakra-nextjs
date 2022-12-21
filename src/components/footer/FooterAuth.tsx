@@ -39,7 +39,7 @@ export default function Footer(props: { [x: string]: any }) {
         {" "}
         &copy; {new Date().getFullYear()}
         <Text as="span" fontWeight="500" ms="4px">
-          Horizon UI. All Rights Reserved. Made with love by FPG Technology
+          All Rights Reserved. Made with love by FPG Technology
         </Text>
       </Text>
       <List display="flex">

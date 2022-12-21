@@ -62,7 +62,34 @@ export const columnsDataColumns: Columns = [
   },
 ];
 
-export const columnsDataComplex: Columns = [
+export const columnsDataDeposit: Columns = [
+  {
+    Header: "TICKETID",
+    accessor: "ticketId",
+  },
+  {
+    Header: "DATE CREATED",
+    accessor: "date",
+  },
+  {
+    Header: "PAYMENT",
+    accessor: "payment",
+  },
+  {
+    Header: "CURRENCY",
+    accessor: "currency",
+  },
+  {
+    Header: "TYPE",
+    accessor: "type",
+  },
+  {
+    Header: "STATUS",
+    accessor: "status",
+  },
+];
+
+export const columnsDataTradingHistory: Columns = [
   {
     Header: "TICKETID",
     accessor: "ticketId",

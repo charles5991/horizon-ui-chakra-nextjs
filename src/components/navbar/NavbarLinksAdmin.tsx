@@ -21,9 +21,9 @@ import PropTypes from "prop-types";
 import React from "react";
 // Assets
 import navImage from "img/layout/Navbar.png";
-import { MdNotificationsNone, MdInfoOutline } from "react-icons/md";
+import { MdNotificationsNone } from "react-icons/md";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
-import { FaEthereum } from "react-icons/fa";
+import { FaEthereum, FaUser } from "react-icons/fa";
 import routes from "routes";
 import { Image } from "components/image/Image";
 export default function HeaderLinks(props: { secondary: boolean }) {
@@ -178,14 +178,13 @@ export default function HeaderLinks(props: { secondary: boolean }) {
       </Button>
       <Menu>
         <MenuButton p="0px">
-          <Avatar
-            _hover={{ cursor: "pointer" }}
-            color="white"
-            name="Adela Parkson"
-            bg="#11047A"
-            size="sm"
-            w="40px"
-            h="40px"
+          <Icon
+            me="10px"
+            h="18px"
+            w="18px"
+            mt="6px"
+            as={FaUser}
+            color={navbarIcon}
           />
         </MenuButton>
         <MenuList
