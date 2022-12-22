@@ -13,6 +13,8 @@ import {
   InputRightElement,
   Text,
   useColorModeValue,
+  Checkbox,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 // Custom components
 import { HSeparator } from "components/separator/Separator";
@@ -22,6 +24,7 @@ import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
+import { Formik, Field } from "formik";
 
 export default function SignIn() {
   // Chakra color mode
@@ -82,7 +85,7 @@ export default function SignIn() {
           me="auto"
           mb={{ base: "20px", md: "auto" }}
         >
-          <Button
+          {/* <Button
             fontSize="sm"
             me="0px"
             mb="26px"
@@ -105,97 +108,180 @@ export default function SignIn() {
               or
             </Text>
             <HSeparator />
-          </Flex>
-          <FormControl isRequired>
-            <FormLabel
-              display="flex"
-              ms="4px"
-              fontSize="sm"
-              fontWeight="500"
-              color={textColor}
-              mb="8px"
-            >
-              Email<Text color={brandStars}>*</Text>
-            </FormLabel>
-            <Input
-              isRequired={true}
-              variant="auth"
-              fontSize="sm"
-              ms={{ base: "0px", md: "0px" }}
-              type="email"
-              placeholder="mail@email.com"
-              mb="24px"
-              fontWeight="500"
-              size="lg"
-            />
-            <FormLabel
-              ms="4px"
-              fontSize="sm"
-              fontWeight="500"
-              color={textColor}
-              display="flex"
-            >
-              Password<Text color={brandStars}>*</Text>
-            </FormLabel>
-            <InputGroup size="md">
-              <Input
-                isRequired={true}
-                fontSize="sm"
-                placeholder="Min. 8 characters"
-                mb="24px"
-                size="lg"
-                type={show ? "text" : "password"}
-                variant="auth"
-              />
-              <InputRightElement display="flex" alignItems="center" mt="4px">
-                <Icon
-                  color={textColorSecondary}
-                  _hover={{ cursor: "pointer" }}
-                  as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
-                  onClick={handleClick}
-                />
-              </InputRightElement>
-            </InputGroup>
-            <FormLabel
-              ms="4px"
-              fontSize="sm"
-              fontWeight="500"
-              color={textColor}
-              display="flex"
-            >
-              Confirm Password<Text color={brandStars}>*</Text>
-            </FormLabel>
-            <InputGroup size="md">
-              <Input
-                isRequired={true}
-                fontSize="sm"
-                placeholder="Min. 8 characters"
-                mb="24px"
-                size="lg"
-                type={show ? "text" : "password"}
-                variant="auth"
-              />
-              <InputRightElement display="flex" alignItems="center" mt="4px">
-                <Icon
-                  color={textColorSecondary}
-                  _hover={{ cursor: "pointer" }}
-                  as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
-                  onClick={handleClick}
-                />
-              </InputRightElement>
-            </InputGroup>
-            <Button
-              fontSize="sm"
-              variant="brand"
-              fontWeight="500"
-              w="100%"
-              h="50"
-              mb="24px"
-              type="submit"
-            >
-              Register
-            </Button>
-          </FormControl>
+          </Flex> */}
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+              confirmPass: "",
+              rememberMe: false,
+            }}
+            onSubmit={(values) => {
+              alert(JSON.stringify(values, null, 2));
+            }}
+          >
+            {({ handleSubmit, errors, touched }) => (
+              <form onSubmit={handleSubmit}>
+                <FormControl>
+                  <FormLabel
+                    display="flex"
+                    ms="4px"
+                    fontSize="sm"
+                    fontWeight="500"
+                    color={textColor}
+                    mb="8px"
+                    htmlFor="email"
+                  >
+                    Email
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    isRequired={true}
+                    id="email"
+                    name="email"
+                    type="email"
+                    variant="auth"
+                    fontSize="sm"
+                    ms={{ base: "0px", md: "0px" }}
+                    placeholder="mail@email.com"
+                    mb="24px"
+                    fontWeight="500"
+                    size="lg"
+                  />
+                </FormControl>
+                <FormControl isInvalid={!!errors.password && touched.password}>
+                  <FormLabel
+                    ms="4px"
+                    fontSize="sm"
+                    fontWeight="500"
+                    color={textColor}
+                    display="flex"
+                    htmlFor="password"
+                  >
+                    Password
+                  </FormLabel>
+                  <InputGroup size="md">
+                    <Field
+                      as={Input}
+                      id="password"
+                      name="password"
+                      variant="auth"
+                      isRequired={true}
+                      fontSize="sm"
+                      placeholder="Min. 8 characters"
+                      mb="24px"
+                      size="lg"
+                      type={show ? "text" : "password"}
+                      validate={(value: string | any[]) => {
+                        let error;
+
+                        if (value.length < 5) {
+                          error = "Password must contain at least 8 characters";
+                        }
+
+                        return error;
+                      }}
+                    />{" "}
+                    <InputRightElement
+                      display="flex"
+                      alignItems="center"
+                      mt="4px"
+                    >
+                      <Icon
+                        color={textColorSecondary}
+                        _hover={{ cursor: "pointer" }}
+                        as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
+                        onClick={handleClick}
+                      />
+                    </InputRightElement>
+                  </InputGroup>
+                  <FormErrorMessage>{errors.password}</FormErrorMessage>
+                </FormControl>
+
+                <FormControl isInvalid={!!errors.password && touched.password}>
+                  <FormLabel
+                    ms="4px"
+                    fontSize="sm"
+                    fontWeight="500"
+                    color={textColor}
+                    display="flex"
+                    htmlFor="confirmPass"
+                  >
+                    Confirm Password
+                  </FormLabel>
+                  <InputGroup size="md">
+                    <Field
+                      as={Input}
+                      id="confirmPass"
+                      name="confirmPass"
+                      variant="auth"
+                      isRequired={true}
+                      fontSize="sm"
+                      placeholder="Min. 8 characters"
+                      mb="24px"
+                      size="lg"
+                      type={show ? "text" : "password"}
+                      validate={(value: string | any[]) => {
+                        let error;
+
+                        if (value.length < 5) {
+                          error = "Password must contain at least 6 characters";
+                        }
+
+                        return error;
+                      }}
+                    />{" "}
+                    <InputRightElement
+                      display="flex"
+                      alignItems="center"
+                      mt="4px"
+                    >
+                      <Icon
+                        color={textColorSecondary}
+                        _hover={{ cursor: "pointer" }}
+                        as={show ? RiEyeCloseLine : MdOutlineRemoveRedEye}
+                        onClick={handleClick}
+                      />
+                    </InputRightElement>
+                  </InputGroup>
+                  <FormErrorMessage>{errors.password}</FormErrorMessage>
+                </FormControl>
+
+                <Flex
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="start"
+                  maxW="100%"
+                  mt="0px"
+                >
+                  <Text
+                    color={textColorDetails}
+                    fontWeight="400"
+                    fontSize="14px"
+                    as={Checkbox}
+                    id="rememberMe"
+                    name="rememberMe"
+                    colorScheme="yellow"
+                  >
+                    Remember me?
+                  </Text>
+                </Flex>
+                <FormControl>
+                  <Button
+                    fontSize="sm"
+                    bg="orange"
+                    fontWeight="500"
+                    w="100%"
+                    h="50"
+                    mb="24px"
+                    type="submit"
+                  >
+                    Register
+                  </Button>
+                </FormControl>
+              </form>
+            )}
+          </Formik>
           <Flex
             flexDirection="column"
             justifyContent="center"
@@ -207,12 +293,7 @@ export default function SignIn() {
               Already register?
               <Link href="/auth/sign-in">
                 <a>
-                  <Text
-                    color={textColorBrand}
-                    as="span"
-                    ms="5px"
-                    fontWeight="500"
-                  >
+                  <Text color="orange" as="span" ms="5px" fontWeight="500">
                     Sign in
                   </Text>
                 </a>

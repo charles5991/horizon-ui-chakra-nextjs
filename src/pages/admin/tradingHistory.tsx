@@ -1,6 +1,6 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import TradingHistory from "views/admin/dataTables/components/TradingHistory";
-import { columnsDataDeposit } from "views/admin/dataTables/variables/columnsData";
+import { columnsDataTradingHistory } from "views/admin/dataTables/variables/columnsData";
 import tradingHistory from "views/admin/dataTables/variables/tradingHistory.json";
 import React from "react";
 import AdminLayout from "layouts/admin";
@@ -16,7 +16,7 @@ export default function DataTables() {
           spacing={{ base: "20px", xl: "20px" }}
         >
           <TradingHistory
-            columnsData={columnsDataDeposit}
+            columnsData={columnsDataTradingHistory}
             tableData={tradingHistory as unknown as TableData[]}
           />
         </SimpleGrid>

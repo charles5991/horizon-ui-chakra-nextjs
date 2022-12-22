@@ -91,7 +91,7 @@ export default function Footer(props: { [x: string]: any }) {
             color={linkColor}
             href="https://www.blog.simmmple.com/"
           >
-            Blog
+            Blogs
           </Link>
         </ListItem>
       </List>

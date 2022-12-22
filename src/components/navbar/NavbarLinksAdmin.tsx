@@ -221,15 +221,17 @@ export default function HeaderLinks(props: { secondary: boolean }) {
                 <Text fontSize="sm">Profile Settings</Text>
               </MenuItem>
             </Link>
-            <MenuItem
-              _hover={{ bg: "none" }}
-              _focus={{ bg: "none" }}
-              color="red.400"
-              borderRadius="8px"
-              px="14px"
-            >
-              <Link href="/auth/sign-in">Log out</Link>
-            </MenuItem>
+            <Link href="/auth/sign-in">
+              <MenuItem
+                _hover={{ bg: "none" }}
+                _focus={{ bg: "none" }}
+                color="red.400"
+                borderRadius="8px"
+                px="14px"
+              >
+                Log out
+              </MenuItem>
+            </Link>
           </Flex>
         </MenuList>
       </Menu>
