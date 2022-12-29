@@ -157,7 +157,6 @@ export default function HeaderLinks(props: { secondary: boolean }) {
           </Flex>
         </MenuList>
       </Menu>
-
       <Button
         variant="no-hover"
         bg="transparent"

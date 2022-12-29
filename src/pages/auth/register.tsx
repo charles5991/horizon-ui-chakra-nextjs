@@ -114,7 +114,7 @@ export default function SignIn() {
               email: "",
               password: "",
               confirmPass: "",
-              rememberMe: false,
+              // rememberMe: false,
             }}
             onSubmit={(values) => {
               alert(JSON.stringify(values, null, 2));
@@ -147,6 +147,7 @@ export default function SignIn() {
                     mb="24px"
                     fontWeight="500"
                     size="lg"
+                    value=""
                   />
                 </FormControl>
                 <FormControl isInvalid={!!errors.password && touched.password}>
@@ -172,6 +173,7 @@ export default function SignIn() {
                       mb="24px"
                       size="lg"
                       type={show ? "text" : "password"}
+                      value=""
                       validate={(value: string | any[]) => {
                         let error;
 
@@ -220,6 +222,7 @@ export default function SignIn() {
                       placeholder="Min. 8 characters"
                       mb="24px"
                       size="lg"
+                      value=""
                       type={show ? "text" : "password"}
                       validate={(value: string | any[]) => {
                         let error;
@@ -247,7 +250,7 @@ export default function SignIn() {
                   <FormErrorMessage>{errors.password}</FormErrorMessage>
                 </FormControl>
 
-                <Flex
+                {/* <Flex
                   flexDirection="column"
                   justifyContent="center"
                   alignItems="start"
@@ -265,7 +268,7 @@ export default function SignIn() {
                   >
                     Remember me?
                   </Text>
-                </Flex>
+                </Flex> */}
                 <FormControl>
                   <Button
                     fontSize="sm"
